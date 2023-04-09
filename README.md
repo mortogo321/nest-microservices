@@ -10,5 +10,9 @@
 
 ## dockerize
 ```
-docker-composer up --build -V
+docker-composer up -d
 ```
+
+## development
+Auth: http://localhost:3001/auth  
+Order: http://localhost:3000
