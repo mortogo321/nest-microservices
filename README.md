@@ -16,4 +16,5 @@ docker-composer up -d
 ## development
 Auth: http://localhost:3001/auth  
 Order: http://localhost:3000  
-RabbitMQ: http://localhost:15672
+RabbitMQ: http://localhost:15673  
+(u: admin, p: password@01)
