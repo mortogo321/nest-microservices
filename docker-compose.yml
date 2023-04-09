@@ -58,17 +58,26 @@ services:
       - /usr/src/app/node_modules
 
   rabbitmq:
-    image: rabbitmq
+    image: rabbitmq:3-management
     ports:
-      - '5672:5672'
+      - 15672:15672
+      - 5672:5672
+  secure-rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 15673:15672
+      - 5673:5672
+    environment:
+      RABBITMQ_DEFAULT_PASS: password@01
+      RABBITMQ_DEFAULT_USER: admin
 
   mongodb-primary:
     image: 'bitnami/mongodb:latest'
     environment:
       - MONGODB_ADVERTISED_HOSTNAME=mongodb-primary
       - MONGODB_REPLICA_SET_MODE=primary
-      - MONGODB_ROOT_PASSWORD=password123
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_ROOT_PASSWORD=password@01
+      - MONGODB_REPLICA_SET_KEY=bHVja2VhY2hjbHVibWFjaGluZXJ5bGV0ZXZlbnR1YWxseXJpY2hnaWZ0c2VydmVicmU=
     volumes:
       - 'mongodb_master_data:/bitnami'
     ports:
@@ -82,8 +91,8 @@ services:
       - MONGODB_REPLICA_SET_MODE=secondary
       - MONGODB_INITIAL_PRIMARY_HOST=mongodb-primary
       - MONGODB_INITIAL_PRIMARY_PORT_NUMBER=27017
-      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=password123
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=password@01
+      - MONGODB_REPLICA_SET_KEY=bHVja2VhY2hjbHVibWFjaGluZXJ5bGV0ZXZlbnR1YWxseXJpY2hnaWZ0c2VydmVicmU=
 
   mongodb-arbiter:
     image: 'bitnami/mongodb:latest'
@@ -93,8 +102,8 @@ services:
       - MONGODB_REPLICA_SET_MODE=arbiter
       - MONGODB_INITIAL_PRIMARY_HOST=mongodb-primary
       - MONGODB_INITIAL_PRIMARY_PORT_NUMBER=27017
-      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=password123
-      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=password@01
+      - MONGODB_REPLICA_SET_KEY=bHVja2VhY2hjbHVibWFjaGluZXJ5bGV0ZXZlbnR1YWxseXJpY2hnaWZ0c2VydmVicmU=
 
 volumes:
   mongodb_master_data:
