@@ -10,11 +10,15 @@
 
 ## dockerize
 ```
+Up:
 docker-composer up -d
+
+Down:
+docker-compose down --rmi all -v --remove-orphans
 ```
 
 ## development
 Auth: http://localhost:3001/auth  
 Order: http://localhost:3000  
-RabbitMQ: http://localhost:15673  
+RabbitMQ: http://localhost:15672  
 (u: admin, p: password@01)
