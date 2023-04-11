@@ -8,7 +8,11 @@
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
 
-## dockerize
+## Description
+
+Nest.js Microservices with RabbitMQ, MongoDB
+
+## Dockernize
 ```
 Up:
 docker-composer up -d
@@ -17,7 +21,7 @@ Down:
 docker-compose down --rmi all -v --remove-orphans
 ```
 
-## development
+## Development
 Auth: http://localhost:3001/auth  
 Order: http://localhost:3000  
 RabbitMQ: http://localhost:15672  
