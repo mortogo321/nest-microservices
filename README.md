@@ -25,4 +25,5 @@ docker-compose down --rmi all -v --remove-orphans
 Auth: http://localhost:3001/auth  
 Order: http://localhost:3000  
 RabbitMQ: http://localhost:15672  
-(u: admin, p: password@01)
+(u: admin, p: password@01)  
+MailHog: http://localhost:8025
